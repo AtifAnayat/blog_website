@@ -1,0 +1,93 @@
+import 'package:flutter/material.dart';
+import 'package:radiant_living_2/constraints/post.dart';
+import 'package:radiant_living_2/models/blog_ppost_model.dart';
+import 'package:radiant_living_2/models/data/dummy_blogs.dart';
+import 'package:radiant_living_2/widgets/custom_footer.dart';
+import 'package:radiant_living_2/widgets/image_slider.dart';
+import 'package:radiant_living_2/widgets/responsive_widget.dart';
+
+class FoodScreen extends StatelessWidget {
+  const FoodScreen({Key? key}) : super(key: key);
+
+  // Filter posts to include only those with categoryId '3' (Food)
+  static final List<LatestPost> posts = latestPosts.where((post) => post.categoryId == '3').toList();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            // Responsive Widget to handle large and small screens
+            ResponsiveWidget(
+              largeScreen: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  _buildPostList(context),
+                ],
+              ),
+              smallScreen: Column(
+                children: [
+                  SliderWidget(),
+                  const SizedBox(height: 20),
+                  _buildPostList(context),
+                ],
+              ),
+            ),
+            CustomFooter(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // Post List Section
+  Widget _buildPostList(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          // Add the "Food" title at the top
+          Padding(
+            padding: EdgeInsets.only(bottom: 10),
+            child: Text(
+              'Food',
+              style: TextStyle(
+                fontSize: ResponsiveWidget.isSmallScreen(context) ? 18 : 28,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          // Posts list starts here
+          ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: posts.length,
+            itemBuilder: (context, index) {
+              final post = posts[index]; // Access the current post
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 20.0),
+                child: PostScreen(
+                  title: post.title,
+                  imageUrl: post.imageUrl,
+                  sections: post.sections
+                      .map((section) => {
+                            'subtitle': section.subtitle,
+                            'content': section.content,
+                          })
+                      .toList(),
+                  dateTime: post.createdAt,
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
