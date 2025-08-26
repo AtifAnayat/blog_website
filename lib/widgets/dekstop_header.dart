@@ -45,7 +45,7 @@ class LargeScreenHeader extends StatelessWidget {
                 _buildMenuItem('Money', 1, context),
                 _buildMenuItem('Fashion', 2, context),
                 _buildMenuItem('Food', 3, context),
-                _buildMenuItem('About', 4, context),
+                _buildMenuItem('Fitness', 4, context),
                 _buildThemeToggle(context)
               ],
             ),
