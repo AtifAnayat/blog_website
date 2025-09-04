@@ -1,16 +1,39 @@
-# radiant_living_2
+# 🌟 Radiant Living
 
-A new Flutter project.
+A modern Flutter Blog Website designed to deliver a smooth and engaging experience.  
+Built with ❤️ using Flutter.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Live Demo
+[![Live Demo](https://img.shields.io/badge/Demo-Live-green)](https://blog-website-rouge-mu.vercel.app/)
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## ✨ Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- 🔑 User authentication (Login / Signup)  
+- 📰 Beautiful UI with clean design  
+- ⚡ Fast performance with Flutter  
+- 🌙 Dark mode support  
+- 📱 Responsive for all screen sizes  
+
+---
+
+## 🛠️ Tech Stack
+
+- [Flutter](https://flutter.dev/)  
+- [Dart](https://dart.dev/)  
+- [Firebase](https://firebase.google.com/) *(if you use it)*  
+
+---
+
+## 📦 Installation
+
+Clone the repo and run:
+
+```bash
+git clone https://github.com/yourusername/radiant_living_2.git
+cd radiant_living_2
+flutter pub get
+flutter run
